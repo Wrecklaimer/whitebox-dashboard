@@ -1,0 +1,59 @@
+$sidebar-width: 15rem;
+$sidebar-collapsed-width: 3rem;
+
+#dashboard-wrapper {
+	position: relative;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+#dashboard-wrapper > .navbar,
+.content {
+	margin-left: $sidebar-width;
+}
+
+.content {
+	flex-grow: 1;
+}
+
+.sidebar {
+	position: absolute;
+	width: $sidebar-width;
+	overflow-x: hidden;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1040; // Need to overlap all other elements
+
+	.menu .nav {
+		width: 100%;
+
+		.nav-item,
+		.nav-link {
+			width: 100%;
+			white-space: nowrap;
+		}
+	}
+
+	.nav-link {
+		position: relative;
+
+		.nav-link-icon {
+			width: $sidebar-collapsed-width;
+			margin-left: -1rem;
+		}
+
+		.nav-link-caret {
+			position: absolute;
+			right: 1em;
+			margin-top: .25em;
+		}
+	}
+}
+
+/* ======================================== */
+
+.content {
+	padding-top: 3.5rem; // Adjust for fixed navbar
+}

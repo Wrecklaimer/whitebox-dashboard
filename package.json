@@ -4,8 +4,8 @@
   "description": "Dashboard plug-in/template",
   "main": "index.html",
   "scripts": {
-    "sass:build": "node-sass --source-map true src/css -o dist/css",
-    "sass:watch": "onchange \"src/css/*.scss\" -- npm run sass:build",
+    "sass:build": "node-sass --source-map true src/styles -o dist/styles",
+    "sass:watch": "onchange \"src/styles/*.scss\" -- npm run sass:build",
     "dev": "npm run sass:build && npm run sass:watch"
   },
   "repository": {
