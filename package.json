@@ -1,0 +1,25 @@
+{
+  "name": "whitebox-dashboard",
+  "version": "0.1.0",
+  "description": "Dashboard plug-in/template",
+  "main": "index.html",
+  "scripts": {
+    "sass:build": "node-sass --source-map true src/css -o dist/css",
+    "sass:watch": "onchange \"src/css/*.scss\" -- npm run sass:build",
+    "dev": "npm run sass:build && npm run sass:watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wrecklaimer/whitebox-dashboard.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wrecklaimer/whitebox-dashboard/issues"
+  },
+  "homepage": "https://github.com/Wrecklaimer/whitebox-dashboard#readme",
+  "devDependencies": {
+    "node-sass": "^4.9.0",
+    "onchange": "^4.0.0"
+  }
+}
