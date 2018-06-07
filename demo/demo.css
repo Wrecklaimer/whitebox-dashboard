@@ -1,0 +1,18 @@
+.side-menu-overlay {
+	display: block;
+	background: rgba(0,0,0,.2);
+	opacity: 0;
+	transition: opacity 200ms;
+}
+
+.side-menu-expanded:not(.side-menu-full) .side-menu-overlay {
+	opacity: 1;
+}
+
+.navbar.fixed-top + .content {
+	padding-top: 3.5rem; /* Adjust for fixed navbar */
+}
+
+.side-menu .navbar .navbar-brand .navbar-brand-icon {
+	margin-left: -1rem; /* Negate navbar horizontal padding */
+}

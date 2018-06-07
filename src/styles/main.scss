@@ -1,30 +1,31 @@
-$sidebar-width: 15rem;
-$sidebar-collapsed-width: 3rem;
+$side-menu-width: 15rem;
+$side-menu-collapsed-width: 3rem;
+$show-hide-speed: 200ms;
 
-#dashboard-wrapper {
+.dashboard-wrapper {
 	position: relative;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 }
 
-#dashboard-wrapper > .navbar,
-.content {
-	margin-left: $sidebar-width;
-}
-
 .content {
 	flex-grow: 1;
 }
 
-.sidebar {
+.side-menu {
 	position: absolute;
-	width: $sidebar-width;
+	width: $side-menu-collapsed-width;
+	margin-left: -$side-menu-collapsed-width;
 	overflow-x: hidden;
 	top: 0;
 	bottom: 0;
 	left: 0;
-	z-index: 1040; // Need to overlap all other elements
+	z-index: 1040; /* Need to overlap all other elements */
+
+	.navbar .navbar-brand .navbar-brand-icon {
+		width: $side-menu-collapsed-width;
+	}
 
 	.menu .nav {
 		width: 100%;
@@ -40,7 +41,7 @@ $sidebar-collapsed-width: 3rem;
 		position: relative;
 
 		.nav-link-icon {
-			width: $sidebar-collapsed-width;
+			width: $side-menu-collapsed-width;
 			margin-left: -1rem;
 		}
 
@@ -52,8 +53,64 @@ $sidebar-collapsed-width: 3rem;
 	}
 }
 
-/* ======================================== */
+.side-menu-overlay {
+	display: none;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1040;
+}
 
-.content {
-	padding-top: 3.5rem; // Adjust for fixed navbar
+.side-menu-collapsed-hide {
+	display: none;
+}
+
+.side-menu-expanded {
+	.side-menu {
+		width: $side-menu-width;
+		margin-left: 0;
+	}
+
+	&:not(.side-menu-full) .side-menu-overlay {
+		display: block;
+		pointer-events: auto;
+	}
+
+	.side-menu-collapsed-hide {
+		display: initial;
+	}
+}
+
+.side-menu-full {
+	.side-menu-push {
+		margin-left: $side-menu-collapsed-width;
+	}
+
+	.side-menu {
+		width: $side-menu-collapsed-width;
+		margin-left: 0;
+	}
+
+	&.side-menu-expanded {
+		.side-menu-push {
+			margin-left: $side-menu-width;
+		}
+
+		.side-menu {
+			width: $side-menu-width;
+		}
+	}
+}
+
+.side-menu-push {
+	transition: margin-left $show-hide-speed ease;
+}
+
+.side-menu {
+	transition: width $show-hide-speed ease,
+							left $show-hide-speed ease,
+							margin-left $show-hide-speed ease;
 }

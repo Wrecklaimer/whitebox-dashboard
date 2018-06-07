@@ -1,42 +1,81 @@
-#dashboard-wrapper {
+.dashboard-wrapper {
   position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column; }
 
-#dashboard-wrapper > .navbar,
-.content {
-  margin-left: 15rem; }
-
 .content {
   flex-grow: 1; }
 
-.sidebar {
+.side-menu {
   position: absolute;
-  width: 15rem;
+  width: 3rem;
+  margin-left: -3rem;
   overflow-x: hidden;
   top: 0;
   bottom: 0;
   left: 0;
-  z-index: 1040; }
-  .sidebar .menu .nav {
+  z-index: 1040;
+  /* Need to overlap all other elements */ }
+  .side-menu .navbar .navbar-brand .navbar-brand-icon {
+    width: 3rem; }
+  .side-menu .menu .nav {
     width: 100%; }
-    .sidebar .menu .nav .nav-item,
-    .sidebar .menu .nav .nav-link {
+    .side-menu .menu .nav .nav-item,
+    .side-menu .menu .nav .nav-link {
       width: 100%;
       white-space: nowrap; }
-  .sidebar .nav-link {
+  .side-menu .nav-link {
     position: relative; }
-    .sidebar .nav-link .nav-link-icon {
+    .side-menu .nav-link .nav-link-icon {
       width: 3rem;
       margin-left: -1rem; }
-    .sidebar .nav-link .nav-link-caret {
+    .side-menu .nav-link .nav-link-caret {
       position: absolute;
       right: 1em;
       margin-top: .25em; }
 
-/* ======================================== */
-.content {
-  padding-top: 3.5rem; }
+.side-menu-overlay {
+  display: none;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1040; }
+
+.side-menu-collapsed-hide {
+  display: none; }
+
+.side-menu-expanded .side-menu {
+  width: 15rem;
+  margin-left: 0; }
+
+.side-menu-expanded:not(.side-menu-full) .side-menu-overlay {
+  display: block;
+  pointer-events: auto; }
+
+.side-menu-expanded .side-menu-collapsed-hide {
+  display: initial; }
+
+.side-menu-full .side-menu-push {
+  margin-left: 3rem; }
+
+.side-menu-full .side-menu {
+  width: 3rem;
+  margin-left: 0; }
+
+.side-menu-full.side-menu-expanded .side-menu-push {
+  margin-left: 15rem; }
+
+.side-menu-full.side-menu-expanded .side-menu {
+  width: 15rem; }
+
+.side-menu-push {
+  transition: margin-left 200ms ease; }
+
+.side-menu {
+  transition: width 200ms ease, left 200ms ease, margin-left 200ms ease; }
 
 /*# sourceMappingURL=main.css.map */
