@@ -107,7 +107,10 @@
 	<script src="../dist/scripts/dashboard.min.js"></script>
 	<script>
 		$(function() {
-				$('#dashboard-wrapper').dashboard();
+				var dashboard = $('#dashboard-wrapper').dashboard();
+				dashboard.on("side-menu:collapse", function() {
+					$('.side-menu .collapse').collapse(); /* Collapse Bootstrap menu*/
+				});
 			});
 	</script>
 </body>

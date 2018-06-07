@@ -68,6 +68,8 @@
 			},
 
 			toggleSideMenu: function() {
+				$container.trigger("side-menu:toggle");
+
 				if ($container.hasClass(Classes.sideMenuExpanded)) {
 					this.collapseSideMenu();
 				} else {
@@ -76,10 +78,12 @@
 			},
 
 			collapseSideMenu: function() {
+				$container.trigger("side-menu:collapse");
 				$container.removeClass(Classes.sideMenuExpanded);
 			},
 
 			expandSideMenu: function() {
+				$container.trigger("side-menu:expand");
 				$container.addClass(Classes.sideMenuExpanded);
 			},
 		}
