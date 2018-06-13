@@ -23,18 +23,14 @@ $show-hide-speed: 200ms;
 	left: 0;
 	z-index: 1040; /* Need to overlap all other elements */
 
-	.navbar .navbar-brand .navbar-brand-icon {
+	.header .brand-icon {
 		width: $side-menu-collapsed-width;
 	}
 
-	.menu .nav {
+	.nav-item,
+	.nav-link {
 		width: 100%;
-
-		.nav-item,
-		.nav-link {
-			width: 100%;
-			white-space: nowrap;
-		}
+		white-space: nowrap;
 	}
 
 	.nav-link {
@@ -42,7 +38,6 @@ $show-hide-speed: 200ms;
 
 		.nav-link-icon {
 			width: $side-menu-collapsed-width;
-			margin-left: -1rem;
 		}
 
 		.nav-link-caret {

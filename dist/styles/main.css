@@ -17,19 +17,16 @@
   left: 0;
   z-index: 1040;
   /* Need to overlap all other elements */ }
-  .side-menu .navbar .navbar-brand .navbar-brand-icon {
+  .side-menu .header .brand-icon {
     width: 3rem; }
-  .side-menu .menu .nav {
-    width: 100%; }
-    .side-menu .menu .nav .nav-item,
-    .side-menu .menu .nav .nav-link {
-      width: 100%;
-      white-space: nowrap; }
+  .side-menu .nav-item,
+  .side-menu .nav-link {
+    width: 100%;
+    white-space: nowrap; }
   .side-menu .nav-link {
     position: relative; }
     .side-menu .nav-link .nav-link-icon {
-      width: 3rem;
-      margin-left: -1rem; }
+      width: 3rem; }
     .side-menu .nav-link .nav-link-caret {
       position: absolute;
       right: 1em;
