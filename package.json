@@ -4,11 +4,14 @@
   "description": "Dashboard plug-in/template",
   "main": "index.html",
   "scripts": {
-    "js:build": "uglifyjs src/scripts/dashboard.js -o dist/scripts/dashboard.min.js --compress --source-map",
+    "js:prep": "mkdirp dist/scripts",
+    "js:build": "npm run js:prep && uglifyjs src/scripts/dashboard.js -o dist/scripts/dashboard.min.js --compress --source-map",
     "js:watch": "onchange \"src/scripts/*.js\" -- npm run js:build",
-    "sass:build": "node-sass src/styles -o dist/styles --source-map true",
+    "sass:prep": "mkdirp dist/styles",
+    "sass:build": "npm run sass:prep && node-sass src/styles -o dist/styles --source-map true",
     "sass:watch": "onchange \"src/styles/*.scss\" -- npm run sass:build",
-    "dev": "npm-run-all --parallel js:watch sass:watch"
+    "dev": "npm-run-all --parallel js:watch sass:watch",
+    "build": "npm-run-all --parallel js:build sass:build"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,7 @@
   },
   "homepage": "https://github.com/Wrecklaimer/whitebox-dashboard#readme",
   "devDependencies": {
+    "mkdirp": "^0.5.1",
     "node-sass": "^4.9.0",
     "npm-run-all": "^4.1.3",
     "onchange": "^4.0.0",
